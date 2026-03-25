@@ -1,0 +1,14 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: cis4004-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: cis4004mern
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
