@@ -1,0 +1,72 @@
+/* Reuses all UserPage.css styles — admin-specific overrides below */
+
+.admin-section {
+  margin-bottom: 3rem;
+}
+
+.admin-section-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gold);
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.admin-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--black);
+  color: var(--gold);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.user-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  transition: box-shadow 0.2s;
+}
+
+.user-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.user-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-card-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.user-card-role {
+  font-size: 0.75rem;
+  color: var(--gray);
+  text-transform: capitalize;
+}
+
+.user-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
