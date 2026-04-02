@@ -1,32 +1,39 @@
 import './RegisterPage.css'
-/*if you want to make things easier, you can just link it to the login page. for now i have both -rowan*/
-import {Link} from "react-router-dom";
-
-/*temporary link for ease of access during development at line 26 -rowan*/
+import './LoginPage.css'
+import { Link } from "react-router-dom";
 
 function RegisterPage() {
   return (
-    <>
-    <div id = "titles">
-      <h1 id = "events">Event Board</h1>
-      <h2 id = "subtitle">Browse, Create, and Join Events</h2>
-    </div>
+    <div className="auth-page">
+      <div className="auth-header">
+        <h1>Event <span>Board</span></h1>
+        <p>Browse, Create, and Join Events</p>
+      </div>
 
-    <div id= "Login Credentials">
-      <h1>Login</h1>
-      <label for="username">Username</label>
-      <input type="text" placeholder="Enter Username" name="username" required></input>
-      <label for="password">Password</label>
-      <input type="text" placeholder="Enter Password" name="password" required></input>
-      <br></br><button type="submit">Login</button>
+      <div className="auth-card">
+        <h2>Register</h2>
 
-      <br></br><Link to="/">Login Instead</Link><br></br>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" name="username" required />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" name="password" required />
+        </div>
+
+        <button className="auth-submit" type="submit">Submit</button>
+        <Link className="auth-switch" to="/">Login Instead</Link>
+      </div>
+
+      {/* Dev links — remove before final submission */}
+      <div className="dev-links">
+        <Link to="/user">→ User Page</Link>
+        <Link to="/admin">→ Admin Page</Link>
+      </div>
     </div>
-      
-    <Link to="/user">Go to User Page</Link>
-    <Link to="/admin">Go to Admin Page</Link>
-    </>
-  )
+  );
 }
 
 export default RegisterPage
