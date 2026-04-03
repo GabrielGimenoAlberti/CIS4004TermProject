@@ -1,3 +1,25 @@
+/* Approved/Denied label for My Events */
+.event-status-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 999px;
+  padding: 0.18rem 0.7rem;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+.event-status-label.approved {
+  background: #e8f5e9;
+  color: #388e3c;
+  border: 1.5px solid #4caf50;
+}
+.event-status-label.denied {
+  background: #ffeaea;
+  color: #cc3333;
+  border: 1.5px solid #cc3333;
+}
 .page-wrapper {
   min-height: 100vh;
   background-color: var(--cream);
@@ -207,6 +229,8 @@
   flex-wrap: wrap;
 }
 
+
+/* RSVP Button (Yes/No) unified style, but No is red when active */
 .btn-rsvp {
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -217,11 +241,21 @@
   background: transparent;
   color: var(--black);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-rsvp:hover {
+  background: var(--gold);
+}
+.btn-rsvp.active {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
 }
 
-.btn-rsvp:hover, .btn-rsvp.active {
+.btn-rsvp.active-no {
   background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
 }
 
 .btn-edit {

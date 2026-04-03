@@ -78,6 +78,10 @@ function EventCard({ event, showActions, userId, userRsvp, onRsvpChange, categor
           <span>📅 {event.date ? event.date.slice(0, 10) : ''}</span>
           <span>📍 {event.location || 'Location TBD'}</span>
         </div>
+        {/* Approved/Denied label for My Events */}
+        {showActions && (
+          <span className={`event-status-label ${event.approved ? 'approved' : 'denied'}`}>{event.approved ? 'Approved' : 'Denied'}</span>
+        )}
       </div>
 
       {editing ? (
@@ -107,8 +111,8 @@ function EventCard({ event, showActions, userId, userRsvp, onRsvpChange, categor
           onClick={e => { e.preventDefault(); e.stopPropagation(); handleRsvp('going'); }}
         >Yes</button>
         <button
-          className="btn-rsvp"
-          disabled={loading || !isRsvped}
+          className={`btn-rsvp${!isRsvped ? ' active-no' : ''}`}
+          disabled={loading}
           onClick={e => { e.preventDefault(); e.stopPropagation(); handleRsvp('remove'); }}
         >No</button>
         {showActions && !editing && (
@@ -239,7 +243,7 @@ function UserPage() {
                   <h2>All Events</h2>
                 </div>
                 <div className="events-grid">
-                  {events.map((event, index) => {
+                  {events.filter(event => event.approved).map((event, index) => {
                     const userRsvp = userRsvps.find(r => r.event && r.event._id === event._id);
                     return (
                       <EventCard

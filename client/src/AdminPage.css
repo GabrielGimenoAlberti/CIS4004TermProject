@@ -1,3 +1,39 @@
+/* Approve/Deny toggle buttons for event cards */
+.btn-approve-toggle, .btn-deny-toggle {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+}
+.btn-approve-toggle {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+.btn-approve-toggle.filled {
+  background: #4caf50;
+  color: white;
+}
+.btn-approve-toggle:not(.filled):hover {
+  background: #e8f5e9;
+}
+.btn-deny-toggle {
+  border-color: #cc3333;
+  color: #cc3333;
+  margin-left: 2px;
+}
+.btn-deny-toggle.filled {
+  background: #cc3333;
+  color: white;
+}
+.btn-deny-toggle:not(.filled):hover {
+  background: #ffeaea;
+}
 /* Reuses all UserPage.css styles — admin-specific overrides below */
 
 .admin-section {

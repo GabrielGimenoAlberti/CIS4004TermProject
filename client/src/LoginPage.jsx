@@ -23,7 +23,14 @@ function LoginPage() {
         window.localStorage.setItem('userName', res.data.user.name);
         window.localStorage.setItem('userRole', res.data.user.role);
       }
-      setTimeout(() => navigate("/user"), 1200);
+      setTimeout(() => {
+        const role = res.data.user?.role;
+        if (role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/user");
+        }
+      }, 1200);
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
