@@ -1,14 +1,20 @@
 const Event = require("../models/Event");
 const User = require("../models/User");
+const Category = require("../models/Category")
 
 const createEvent = async (req, res) => {
   try {
     const { title, description, date, location, category, createdBy } = req.body;
 
-    if (!title || !description || !date || !location || !createdBy) {
+    if (!title || !description || !date || !location || !category || !createdBy) {
       return res.status(400).json({
-        message: "Title, description, date, location, and createdBy are required.",
+        message: "Title, description, date, location, category, and createdBy are required.",
       });
+    }
+
+    const categoryDoc = await Category.findById(category);
+    if (!categoryDoc) {
+      return res.status(400).json({ message: "Invalid category." });
     }
 
     const user = await User.findById(createdBy);
