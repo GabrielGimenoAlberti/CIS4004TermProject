@@ -8,7 +8,7 @@ dotenv.config();
 const userRoutes = require("./routes/users");
 const eventRoutes = require("./routes/events");
 const rsvpRoutes = require("./routes/rsvps");
-const commentRoutes = require("./routes/comments");
+const commentRoutes = require("./routes/comment");
 const categoryRoutes = require("./routes/category");
 
 const app = express();
