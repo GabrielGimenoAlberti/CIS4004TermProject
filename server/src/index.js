@@ -11,6 +11,8 @@ const rsvpRoutes = require("./routes/rsvps");
 const commentRoutes = require("./routes/comment");
 const categoryRoutes = require("./routes/category");
 
+const seedCategories = require("./seed/category");
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

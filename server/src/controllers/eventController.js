@@ -35,6 +35,7 @@ const createEvent = async (req, res) => {
     const savedEvent = await event.save();
     res.status(201).json(savedEvent);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error creating event.", error: error.message });
   }
 };
@@ -44,6 +45,7 @@ const getAllEvents = async (req, res) => {
     const events = await Event.find().populate("createdBy", "name email role");
     res.json(events);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error fetching events.", error: error.message });
   }
 };
@@ -53,6 +55,7 @@ const getApprovedEvents = async (req, res) => {
     const events = await Event.find({ approved: true }).populate("createdBy", "name email role");
     res.json(events);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error fetching approved events.", error: error.message });
   }
 };
@@ -67,6 +70,7 @@ const getEventById = async (req, res) => {
 
     res.json(event);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error fetching event.", error: error.message });
   }
 };
@@ -105,13 +109,14 @@ const updateEvent = async (req, res) => {
     const updatedEvent = await event.save();
     res.json(updatedEvent);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error updating event.", error: error.message });
   }
 };
 
 const deleteEvent = async (req, res) => {
   try {
-    const { userId } = req.body;
+    const userId = req.query.userId || req.body.userId;
 
     const event = await Event.findById(req.params.id);
     if (!event) {
@@ -133,6 +138,7 @@ const deleteEvent = async (req, res) => {
     await Event.findByIdAndDelete(req.params.id);
     res.json({ message: "Event deleted successfully." });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error deleting event.", error: error.message });
   }
 };
@@ -156,6 +162,7 @@ const approveEvent = async (req, res) => {
 
     res.json(updatedEvent);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error approving event.", error: error.message });
   }
 };
